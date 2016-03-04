@@ -1,8 +1,15 @@
-import org.apache.bcel.generic.Select;
+
+
+
+import java.awt.Checkbox;
+
+import org.openqa.jetty.html.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumTest1 {
 
@@ -20,7 +27,7 @@ public class SeleniumTest1 {
 		Thread.sleep(1000); // use to wait time
 		//find
 			driver.findElement(By.id("lst-ib")).clear(); // use to clear field
-			driver.findElement(By.id("lst-ib")).sendKeys("facebook");
+			driver.findElement(By.id("lst-ib")).sendKeys("gmail");
 		
 		//click command to search button
 			driver.findElement(By.name("btnG")).click();
@@ -28,7 +35,7 @@ public class SeleniumTest1 {
 			Thread.sleep(1000); // use to wait time
 		
 		// click on link
-			driver.findElement(By.partialLinkText("Facebook")).click();
+			driver.findElement(By.partialLinkText("Create a Gmail")).click();
 		
 		// pass value to fields 
 			driver.findElement(By.id("FirstName")).sendKeys("uditha");
@@ -36,29 +43,30 @@ public class SeleniumTest1 {
 			driver.findElement(By.id("GmailAddress")).sendKeys("uditha");
 			driver.findElement(By.id("Passwd")).sendKeys("uditha");
 			driver.findElement(By.id("PasswdAgain")).sendKeys("uditha");
-		
-		
-		
-		System.out.println(driver.getTitle());
-		
-		//get webpage result
-		
-			//System.out.println(driver.findElement(By.className("rc")).getText());
-		
-		
-			
-		
-			
-			// set combobox value
-			
-				//assign webelment for listbox
-					WebElement elemant = driver.findElement(By.id(":e"));
-					//Select DropDown=new Select(elemant);
-					
-			
-			//driver.findElement(By.className("goog-inline-block goog-flat-menu-button-caption")).sendKeys("May");
+			driver.findElement(By.id("BirthDay")).sendKeys("3");
+			driver.findElement(By.id("BirthYear")).sendKeys("1992");
 			driver.findElement(By.id("RecoveryPhoneNumber")).sendKeys("718790541");
 			driver.findElement(By.id("RecoveryEmailAddress")).sendKeys("uditharandika@gmail.com");
+			
+			//pass combobox value
+			
+			/*WebElement element=driver.findElement(By.id("HiddenGender"));
+			System.out.println(element.getText());
+			Select se=new Select(element);
+			se.selectByVisibleText("July");*/// not working
+			
+			
+			
+			
+			//set checkbox true
+					
+			boolean checkstatus;  
+			WebElement elemant2 = driver.findElement(By.id("SkipCaptcha"));
+			checkstatus=elemant2.isSelected();  
+			elemant2.click();
+			System.out.println(checkstatus);
+			
+		
 			
 			Thread.sleep(1000);
 			

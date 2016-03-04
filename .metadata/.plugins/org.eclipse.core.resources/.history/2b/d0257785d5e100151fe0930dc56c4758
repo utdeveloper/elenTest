@@ -1,0 +1,65 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class SeleniumTest1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		// create firefox dirver
+		WebDriver driver=new FirefoxDriver();
+		
+		//open site home page
+		driver.get("https://www.google.com/intl/en/mail/help/about.html");
+		
+		Thread.sleep(1000); // use to wait time
+		//find element & send text
+			
+		//driver.findElement(By.id("what")).clear(); // use to clear field
+		//driver.findElement(By.id("what")).sendKeys("java");
+		
+		//click command to search button
+			//driver.findElement(By.name("fj")).click();
+		
+		
+		System.out.println(driver.getTitle());
+		
+		//get webpage result
+		
+			//System.out.println(driver.findElement(By.className("rc")).getText());
+		
+		// click on link
+			//driver.findElement(By.linkText("Create account")).click();
+			driver.findElement(By.id("gmail-create-account")).click();
+			
+		// pass value to fields 
+			driver.findElement(By.id("FirstName")).sendKeys("uditha");
+			driver.findElement(By.id("LastName")).sendKeys("Randika");
+			driver.findElement(By.id("GmailAddress")).sendKeys("uditha");
+			driver.findElement(By.id("Passwd")).sendKeys("uditha");
+			driver.findElement(By.id("PasswdAgain")).sendKeys("uditha");
+			//driver.findElement(By.className("goog-inline-block goog-flat-menu-button jfk-select")).sendKeys("May");;
+			driver.findElement(By.id("RecoveryPhoneNumber")).sendKeys("718790541");
+			driver.findElement(By.id("RecoveryEmailAddress")).sendKeys("uditharandika@gmail.com");
+			
+			Thread.sleep(1000);
+			
+			//get attribute value
+			//System.out.println(driver.findElement(By.className("logo logo-w")).getAttribute("src"));
+		
+			//count links
+			System.out.println(driver.findElement(By.tagName("a")).getSize());
+			
+			
+		
+			
+			//open link by link name
+			driver.findElement(By.linkText("Learn more")).click();
+			
+		//close driver
+			//driver.close();
+		
+	}
+
+}
