@@ -1,0 +1,62 @@
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+
+public class TestHomepagemanuvally {
+	private FirefoxDriver driver;
+	private StringBuffer verificationErrors = new StringBuffer();
+	
+	@Before
+	public void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver
+		
+	}
+	
+	@Test
+	public void goToWebpage(){
+		
+		// go to w3school web page
+		try{
+			driver.get("http://www.w3schools.com");	
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}		
+		
+		
+		//Make page maximixe
+		driver.manage().window().maximize();
+		
+		//verify title
+		String title=driver.getTitle().toString();
+		if(title=="W3Schools Online Web Tutorials"){
+			System.out.println("Title Verify Sucess");
+		}
+		else{
+			System.out.println("Title Verify Not Sucess");
+		}
+		
+		
+		try{
+			driver.assertEquals("W3Schools Online Web Tutorials", driver.getTitle().toString());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		
+		
+	}
+	
+	 @After
+	  public void tearDown() throws Exception {
+	    driver.quit();
+	    String verificationErrorString = verificationErrors.toString();
+	    if (!"".equals(verificationErrorString)) {
+	      fail(verificationErrorString);
+	    }
+	  }
+}

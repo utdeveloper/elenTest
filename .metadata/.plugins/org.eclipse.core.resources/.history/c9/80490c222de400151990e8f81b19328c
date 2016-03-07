@@ -1,0 +1,45 @@
+import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+
+import com.thoughtworks.selenium.webdriven.commands.IsElementPresent;
+public class TestGmailSignup {
+	
+	
+	private FirefoxDriver driver;
+	private StringBuffer verificationErrors = new StringBuffer();
+	
+	@Before
+	public void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver
+		
+	}
+	
+	@Test
+	public void testgmailsig(){
+		
+		try{
+			driver.get("https://www.google.com/intl/en/mail/help/about.html");	
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}	
+		
+		
+		// verify title
+		try{
+			assertEquals("Gmail - Free Storage and Email from Google", driver.getTitle());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+	}
+	
+}

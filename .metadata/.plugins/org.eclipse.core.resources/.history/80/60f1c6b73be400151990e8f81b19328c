@@ -1,0 +1,367 @@
+
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Untitled {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://sahasa.lk";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testUntitled() throws Exception {
+    driver.get(baseUrl + "/");
+    try {
+      assertEquals("Sahasa - Bring your Business into Cyber Space", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("", driver.findElement(By.cssSelector("img[alt=\"sahasa.lk logo\"]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("", driver.findElement(By.id("searchid")).getAttribute("value"));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.name("search")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Add Place")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Add Place", driver.findElement(By.linkText("Add Place")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("signIN")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Sign in", driver.findElement(By.id("signIN")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.cssSelector("h2")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("SAHASA", driver.findElement(By.cssSelector("h2")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.cssSelector("div.animation-slider")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab1")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab2")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab3")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab4")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab5")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab6")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab7")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab8")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab9")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab10")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab11")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab12")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab13")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab14")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab15")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("nex")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.id("nex")).click();
+    try {
+      assertTrue(isElementPresent(By.id("tab1")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab2")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab3")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab4")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab5")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab6")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab7")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab8")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab9")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab10")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab11")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab12")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab13")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab14")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("tab15")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Company", driver.findElement(By.cssSelector("div.col-lg-2 > h4")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("For Businesses", driver.findElement(By.xpath("//div[6]/div/div/div[2]/h4")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("For Events", driver.findElement(By.xpath("//div[3]/h4")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Social", driver.findElement(By.xpath("//div[4]/h4")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Newsletter", driver.findElement(By.cssSelector("div.col-lg-4 > h4")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("About Us")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Terms of Service")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Privacy Policy")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Contact Us")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("FAQ")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Payment Details")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("For Businesses")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.xpath("//div[3]/p")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Facebook')])[3]")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("subscribe")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.cssSelector("button.btn.btn-success")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Copyright © Cey-Digital 2015. All right reserved.", driver.findElement(By.cssSelector("p.pull-left")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

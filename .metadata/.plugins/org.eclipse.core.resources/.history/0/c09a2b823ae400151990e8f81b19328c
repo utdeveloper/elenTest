@@ -1,0 +1,96 @@
+import static org.junit.Assert.*;
+import java.util.concurrent.TimeUnit;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+import org.junit.Before;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TestIndex {
+
+	private FirefoxDriver driver;	
+	private StringBuffer verificationErrors = new StringBuffer();
+	
+	@Before
+	public void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver				
+	}
+	
+	@Test
+	public void testindexpage(){
+		
+		// goto site
+		try{
+			driver.get("http://sahasa.lk/");
+			
+		}
+		catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		// verify title
+		try{
+			assertEquals("Sahasa - Bring your Business into Cyber Space", driver.getTitle());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//verify main logo
+		try{
+			assertTrue(isElementPresent(By.id("logo-img")));
+			
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//verify main logo url
+		try{
+			assertEquals("http://sahasa.lk",driver.findElement(By.id("logo-img")).getAttribute("src"));
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		
+		//verify search box
+		try{
+			assertTrue(isElementPresent(By.id("searchid")));
+			
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//verify Search button
+		try{
+			assertTrue(isElementPresent(By.className("searchdf")));
+			
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		
+	}
+	
+	@After
+	  public void tearDown() throws Exception {
+	    driver.quit();
+	    
+	  }
+	
+	private boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (NoSuchElementException e) {
+	      return false;
+	    }
+	  }
+}

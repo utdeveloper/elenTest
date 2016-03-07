@@ -1,0 +1,72 @@
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+
+public class TestHomepagemanuvally {
+	private FirefoxDriver driver;
+	private StringBuffer verificationErrors = new StringBuffer();
+	
+	@Before
+	public void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver
+		
+	}
+	
+	@Test
+	public void goToWebpage(){
+		
+		// go to w3school web page
+		try{
+			driver.get("http://www.w3schools.com");	
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}		
+		
+		
+		//Make page maximixe
+		driver.manage().window().maximize();
+		
+		
+				
+		//verify title
+		try{
+			assertEquals("W3Schools Online Web Tutorials", driver.getTitle());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//verify Hompage link
+		try{
+			assertEquals("http://www.w3schools.com/", driver.findElement(By.className("w3schools-logo")).getAttribute("href"));
+			//System.out.println(driver.findElement(By.className("w3schools-logo")).getAttribute("href"));
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		
+		try{
+			System.out.println(driver.findElement(By.className("w3-right toptext w3-wide")));
+			//assertEquals("THE WORLD'S LARGEST WEB DEVELOPER SITE",driver.findElement(By.className("w3-right toptext w3-wide")));
+			
+		}
+		catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		
+	}
+	
+	 @After
+	  public void tearDown() throws Exception {
+	    driver.quit();
+	    String verificationErrorString = verificationErrors.toString();
+	    if (!"".equals(verificationErrorString)) {
+	      fail(verificationErrorString);
+	    }
+	  }
+}

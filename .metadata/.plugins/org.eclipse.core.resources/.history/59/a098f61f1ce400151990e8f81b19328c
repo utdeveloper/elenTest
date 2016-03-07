@@ -1,0 +1,18 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TestHomepagemanuvally {
+	private FirefoxDriver driver;
+	@Before
+	private void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver
+		
+	}
+	
+	@Test
+	private void goToWebpage(){
+		driver.get("http://www.w3schools.com");
+	}
+}

@@ -1,0 +1,80 @@
+import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+
+import com.thoughtworks.selenium.webdriven.commands.IsElementPresent;
+public class TestGmailSignup {
+	
+	
+	private FirefoxDriver driver;
+	private StringBuffer verificationErrors = new StringBuffer();
+	
+	@Before
+	public void createDriver(){
+		driver = new FirefoxDriver(); // load firefox driver
+		
+	}
+	
+	@Test
+	public void testgmailsig(){
+		
+		try{
+			driver.get("https://www.google.com/intl/en/mail/help/about.html");	
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}	
+		
+		
+		// verify title
+		try{
+			assertEquals("Gmail - Free Storage and Email from Google", driver.getTitle());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//verify signup button
+		try{
+			assertEquals("Create an account", driver.findElement(By.partialLinkText("Create an account")));
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//click on signup button
+		driver.findElement(By.id("gmail-create-account")).click();
+		
+		
+		//verify site
+		try{
+			assertEquals("Create your Google Account", driver.getTitle());
+		
+		} catch (Error e) {
+		      verificationErrors.append(e.toString());
+		}
+		
+		//add data
+		driver.findElement(By.id("FirstName")).sendKeys("uditha");
+		driver.findElement(By.id("LastName")).sendKeys("Randika");
+		driver.findElement(By.id("GmailAddress")).sendKeys("uditha");
+		driver.findElement(By.id("Passwd")).sendKeys("uditha");
+		driver.findElement(By.id("PasswdAgain")).sendKeys("uditha");
+		driver.findElement(By.id("BirthDay")).sendKeys("3");
+		driver.findElement(By.id("BirthYear")).sendKeys("1992");
+		driver.findElement(By.id("RecoveryPhoneNumber")).sendKeys("718790541");
+		driver.findElement(By.id("RecoveryEmailAddress")).sendKeys("uditharandika@gmail.com");
+		
+		driver.findElement(By.xpath("//span[@id='BirthMonth']/div")).click();
+		driver.findElement(By.xpath("//div[@id=':6']/div")).click();
+		
+		
+	}
+	
+}
